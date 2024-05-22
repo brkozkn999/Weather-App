@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
   try {
     const apiKey = process.env.OPENWEATHERMAP_API_KEY;
-
     const searchParams = req.nextUrl.searchParams;
 
     const lat = searchParams.get("lat");
@@ -20,3 +19,9 @@ export async function GET(req: NextRequest) {
     return new Response("Error fetching forecast data", { status: 500 });
   }
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

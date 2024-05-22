@@ -17,3 +17,9 @@ export async function GET(req: NextRequest) {
     return new Response("Error fetching geocoded data", { status: 500 });
   }
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

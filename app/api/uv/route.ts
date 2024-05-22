@@ -17,8 +17,13 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(uvData);
   } catch (error) {
-    console.log("Error Getting Uv Data");
-
-    return new Response("Error getting Uv Data", { status: 500 });
+    console.log("Error Getting UV Data");
+    return new Response("Error getting UV Data", { status: 500 });
   }
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};
